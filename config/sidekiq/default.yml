@@ -1,0 +1,9 @@
+concurrency: <%= ENV.fetch('RAILS_MAX_THREADS', 5).to_i %>
+# Mailer queue has the highest priority and is checked twice as often as the other queues.
+# The other queues all have an equal chance of getting a job picked off
+# https://github.com/mperham/sidekiq/wiki/Advanced-Options#queues
+queues:
+  - [default, 2]
+  - [mailer, 1]
+  - [crawler, 1]
+enabled: <%= ENV.fetch('SCHEDULER_ENABLED', true) %>
