@@ -1,2 +1,5 @@
-web: bin/rails server -p 3000
-css: bin/rails tailwindcss:watch
+web: PORT=3000 bundle exec puma -C config/puma.rb
+css: bundle exec rails tailwindcss:watch
+
+worker: bundle exec sidekiq -C config/sidekiq/default.yml
+

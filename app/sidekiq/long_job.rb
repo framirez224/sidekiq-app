@@ -6,9 +6,10 @@ class LongJob
   def perform(*args)
     counter = 0
 
-    while counter <= 30
-      sleep(1)
+    while counter <= 4
+      sleep(5)
       Rails.logger.info("Long job is running ...")
+      counter += 1
     end
   end
 end
