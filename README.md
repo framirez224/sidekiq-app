@@ -2,6 +2,10 @@
 
 This is a simple rails app made to show [Sidekiq's](https://github.com/mperham/sidekiq) capabilities.
 
+## Setup
+
+This app only requires Redis. Ensure you have a Redis instance running on localhost, or edit the sidekiq configuration in `config/initializers/sidekiq.rb`.
+
 ## To cover
 ### What is sidekiq?
     - https://github.com/mperham/sidekiq/wiki/The-Basics
