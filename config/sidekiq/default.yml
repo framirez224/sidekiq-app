@@ -6,4 +6,3 @@ queues:
   - [default, 2]
   - [mailer, 1]
   - [crawler, 1]
-enabled: <%= ENV.fetch('SCHEDULER_ENABLED', true) %>
