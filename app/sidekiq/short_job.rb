@@ -3,6 +3,6 @@ class ShortJob
   sidekiq_options queue: :default, tags: ['🥇']
 
   def perform(*args)
-    # Do something
+    sleep(0.05)
   end
 end

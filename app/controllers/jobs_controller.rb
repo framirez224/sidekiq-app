@@ -21,6 +21,17 @@ class JobsController < ApplicationController
     redirect_to new_job_url, notice: "Enqueued job #{job_id}."
   end
 
+  def oh_boy
+    args = (0..100).map do |_|
+      []
+    end
+
+    ShortJob.perform_bulk(args)
+
+    redirect_to new_job_url
+  end
+
+
   private
 
   # Only allow a list of trusted parameters through.
