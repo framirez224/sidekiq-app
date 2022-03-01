@@ -12,7 +12,11 @@ class JobsController < ApplicationController
 
     @job = Job.new(name: klass_name.to_s, id: 1)
 
-    job_id = klass_name.perform_async
+    job_id = if klass_name.name == MailerJob.name
+      klass_name.perform_async('foobar@example.com')
+    else
+      klass_name.perform_async
+    end
 
     redirect_to new_job_url, notice: "Enqueued job #{job_id}."
   end

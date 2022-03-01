@@ -1,4 +1,5 @@
 class LongJob
+  # A simple job that simulates a long running process
   include Sidekiq::Job
 
   sidekiq_options queue: :crawler, tags: ['alpha', '🥇']
@@ -11,5 +12,7 @@ class LongJob
       Rails.logger.info("Long job is running ...")
       counter += 1
     end
+
+    Rails.logger.info("Long job finished!")
   end
 end
