@@ -13,5 +13,9 @@ RSpec.describe JobsController, type: :routing do
     it "routes to #oh_boy" do
       expect(post: "/jobs/oh_boy").to route_to("jobs#oh_boy")
     end
+
+    it "routes to #index" do
+      expect(get: "/jobs").to route_to("jobs#index")
+    end
   end
 end

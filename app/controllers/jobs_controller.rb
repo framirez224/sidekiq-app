@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_jobs, only: %i[ new create ]
+  before_action :set_jobs, only: [ :new, :create, :index ]
 
   # GET /jobs/new
   def new
