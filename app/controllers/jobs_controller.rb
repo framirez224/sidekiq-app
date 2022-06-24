@@ -8,7 +8,7 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    klass_name = job_params["job_name"].safe_constantize
+    klass_name = job_params.safe_constantize
 
     @job = Job.new(name: klass_name.to_s, id: 1)
 
@@ -36,7 +36,7 @@ class JobsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def job_params
-    params.permit(:job_name)
+    params.require(:job_name)
   end
 
   def set_jobs
